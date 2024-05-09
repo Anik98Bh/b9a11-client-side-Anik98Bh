@@ -37,8 +37,8 @@ const Navbar = () => {
         <a data-tooltip-id="my-tooltip" data-tooltip-content="Home">
             <li><NavLink to="/" className="font-acma">Home</NavLink></li>
         </a>
-        <a data-tooltip-id="my-tooltip" data-tooltip-content="All Tourists Spot">
-            <li><NavLink to="/allTourists" className="font-acma">All Tourists Spot</NavLink></li>
+        <a data-tooltip-id="my-tooltip" data-tooltip-content="Queries">
+            <li><NavLink to="/queries" className="font-acma">Queries</NavLink></li>
         </a>
         {/* <a data-tooltip-id="my-tooltip" data-tooltip-content="Add Tourists Spot">
             {user && <li><NavLink to="/addTourists" className="font-acma">Add Tourists Spot</NavLink></li>}
