@@ -3,6 +3,8 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Queries from "../components/Queries/Queries";
+import Login from "../pages/shared/Login/Login";
+import Register from "../pages/shared/Register/Register";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
         {
           path: "/queries",
           element: <Queries></Queries>
+        },
+        {
+          path: "/login",
+          element: <Login></Login>
+        },
+        {
+          path: "/register",
+          element: <Register></Register>
         },
       ],
     },
