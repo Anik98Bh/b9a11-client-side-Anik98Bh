@@ -5,10 +5,10 @@ const Footer = () => {
     return (
         <footer className="footer p-10 bg-base-200 text-base-content mt-7">
             <aside>
-                <a className="btn btn-ghost text-3xl font-acma"><span className="text-green-500">AB</span>Tourism Management</a>
+                <a className="btn btn-ghost text-3xl font-acma"><span className="text-green-500 text-6xl">A$</span> Alternative Stocks</a>
                 <p className="pl-5">Providing reliable tech since 1992</p>
                 <aside className="pl-5">
-                    <p>Copyright © 2024 - All right reserved by AB Tourism Management</p>
+                    <p>Copyright © 2024 - All right reserved by  <span className="font-bold">Alternative Stocks</span></p>
                 </aside>
                 <nav className="pl-5">
                     <h6 className="footer-title">Social</h6>
