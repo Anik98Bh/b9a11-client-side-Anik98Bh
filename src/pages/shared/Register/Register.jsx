@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth/useAuth";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import 'animate.css';
 
 const Register = () => {
     const { createUser } = useAuth();
@@ -54,12 +55,12 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 ">
             <div className="hero-content flex-col lg:flex-row">
-                <div className="w-1/2 mr-6">
+                <div className="w-1/2 lg:h-[608px] mr-6 animate__animated animate__fadeInLeft">
                     <img className="rounded-xl" src="https://i.postimg.cc/xdhkkMdf/3d-hand-hold-smartphone-with-authentication-form.jpg" alt="" />
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card shrink-0 w-full max-w-sm border-2 bg-base-100 animate__animated animate__fadeInRight">
                     <h1 className="text-3xl text-center font-bold mt-2">Register Now</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
@@ -95,7 +96,7 @@ const Register = () => {
                             <input type="text" name="photo" placeholder="photoURL" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-accent" type="submit" value="Register" />
+                            <input className="btn btn-accent font-bold" type="submit" value="Register" />
                         </div>
                     </form>
                     {

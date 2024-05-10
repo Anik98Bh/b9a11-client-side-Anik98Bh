@@ -64,11 +64,11 @@ const Login = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
-                <div className="w-1/2 mr-6">
+                <div className="w-1/2 mr-6 animate__animated animate__fadeInLeft">
                     <img className="rounded-xl" src="https://i.postimg.cc/xdhkkMdf/3d-hand-hold-smartphone-with-authentication-form.jpg" alt="" />
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <h1 className="text-3xl text-center font-bold">Login</h1>
+                <div className="card shrink-0 w-full max-w-sm border-2 bg-base-100 animate__animated animate__fadeInRight">
+                    <h1 className="text-3xl text-center font-bold mt-2">Login</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -83,7 +83,7 @@ const Login = () => {
                             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-accent" type="submit" value="Login" />
+                            <input className="btn btn-accent font-bold" type="submit" value="Login" />
                         </div>
                         <div className="mt-4">
                             <p className="mt-6 text-xl font-bold text-center">----------------- OR ---------------</p>

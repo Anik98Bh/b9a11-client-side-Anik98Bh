@@ -1,10 +1,13 @@
+import { Slide } from "react-awesome-reveal";
 
 const PeoplePlausible = () => {
     return (
         <div className="grid place-items-center mt-28">
             <div className="text-center">
-                <h1 className="text-5xl font-bold">People ❤️ Plausible</h1>
-                <p className="mt-5">Plausible is built for scale and can serve sites with hundreds of millions of monthly visitors. <br /> Thousands of sites, startups and some of the world's leading brands have already made <br /> the switch from Google Analytics and other services.</p>
+                <Slide triggerOnce>
+                    <h1 className="text-5xl font-bold">People ❤️ Plausible</h1>
+                    <p className="mt-5">Plausible is built for scale and can serve sites with hundreds of millions of monthly visitors. <br /> Thousands of sites, startups and some of the worlds leading brands have already made <br /> the switch from Google Analytics and other services.</p>
+                </Slide>
             </div>
             <div className="stats shadow lg:h-60 lg:w-[1000px] mt-5">
 

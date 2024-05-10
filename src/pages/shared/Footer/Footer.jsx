@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-base-200 text-base-content mt-7">
             <aside>
                 <a className="btn btn-ghost text-3xl font-acma"><span className="text-red-500 text-6xl">A$</span> Alternative Stocks</a>
-                <p className="pl-5">Providing reliable tech since 1992</p>
+                <p className="pl-5 mt-2">Providing reliable tech since 1992</p>
                 <aside className="pl-5">
                     <p>Copyright © 2024 - All right reserved by  <span className="font-bold">Alternative Stocks</span></p>
                 </aside>
