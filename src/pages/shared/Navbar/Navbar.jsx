@@ -46,10 +46,10 @@ const Navbar = () => {
                 For Me</NavLink></li>}
         </a>
         <a data-tooltip-id="my-tooltip" data-tooltip-content="My Queries ">
-            {user && <li><NavLink to="/myQueries " className="font-acma">My Queries </NavLink></li>}
+            {user && <li><NavLink to="/myQueries" className="font-acma">My Queries </NavLink></li>}
         </a>
         <a data-tooltip-id="my-tooltip" data-tooltip-content="My recommendations ">
-            {user && <li><NavLink to="/myRecommendations " className="font-acma">My recommendations </NavLink></li>}
+            {user && <li><NavLink to="/myRecommendation" className="font-acma">My recommendations </NavLink></li>}
         </a>
 
         <Tooltip id="my-tooltip" />
