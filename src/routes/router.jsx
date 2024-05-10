@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Queries from "../components/Queries/Queries";
 import Login from "../pages/shared/Login/Login";
 import Register from "../pages/shared/Register/Register";
+import RecommendationsForMe from "../pages/shared/RecommendationsForMe/RecommendationsForMe";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: "/recommendationsForMe",
+          element: <RecommendationsForMe></RecommendationsForMe>
         },
       ],
     },
