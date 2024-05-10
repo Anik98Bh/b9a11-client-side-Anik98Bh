@@ -6,6 +6,7 @@ import Queries from "../components/Queries/Queries";
 import Login from "../pages/shared/Login/Login";
 import Register from "../pages/shared/Register/Register";
 import RecommendationsForMe from "../pages/shared/RecommendationsForMe/RecommendationsForMe";
+import MyQueries from "../pages/shared/MyQueries/MyQueries";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         {
           path: "/recommendationsForMe",
           element: <RecommendationsForMe></RecommendationsForMe>
+        },
+        {
+          path: "/myQueries",
+          element: <MyQueries></MyQueries>
         },
       ],
     },
