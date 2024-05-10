@@ -1,7 +1,12 @@
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
+    const { signIn, googleLogin } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault()
@@ -10,45 +15,50 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        // signIn(email, password)
-        // .then(result => {
-        //     console.log(result.user)
+        signIn(email, password)
+        .then(result => {
+            console.log(result.user)
 
-        //     navigate(location?.state ? location.state : "/")
-        //     if(result.user){
-        //         Swal.fire({
-        //             position: "top-end",
-        //             icon: "success",
-        //             title: "Login has been successfully",
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //           });
-        //     }
+            navigate(location?.state ? location.state : "/")
+            if(result.user){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login has been successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
 
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        // })
+        })
+        .catch(error => {
+            console.error(error)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+        })
     }
 
     const handleGoogleLogin = () => {
-        // googleLogin()
-        //     .then(result => {
-        //         console.log(result.user)
-        //         navigate(location?.state ? location.state : "/")
-        //         if(result.user){
-        //             Swal.fire({
-        //                 position: "top-end",
-        //                 icon: "success",
-        //                 title: "Login has been successfully",
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //               });
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : "/")
+                if(result.user){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -76,7 +86,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
+                            <input className="btn btn-accent" type="submit" value="Login" />
                         </div>
                         <div className="mt-4">
                             <p className="mt-6 text-xl font-bold text-center">----------------- OR ---------------</p>

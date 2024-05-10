@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth/useAuth";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+    const { createUser } = useAuth();
+    const [success, setSuccess] = useState('');
+    const [registerError, setRegisterError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handleSignUp = e => {
         e.preventDefault()
@@ -8,14 +17,40 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        const photo = form.photo.value;
+        console.log(name, email, password, photo);
 
-        // createUser(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log('created User', user);
-        //     })
-        //     .catch(error => console.error(error))
+        setSuccess('');
+        setRegisterError('');
+
+        if (password.length < 6) {
+            setRegisterError('Password should be at least 6 characters or longer');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setRegisterError('Password should be at least 1 UpperCase characters');
+            return;
+        }
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log('created User', user);
+                navigate(location?.state ? location.state : "/")
+                if (setSuccess) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Register has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                setRegisterError('Please Give Correct Information', error.message);
+            })
     }
 
     return (
@@ -39,11 +74,19 @@ const Register = () => {
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="password"
+                                className="input input-bordered" required />
+                            <span className="absolute top-12 left-3/4 ml-12 text-xl" onClick={() => setShowPassword(!showPassword)}>
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </span>
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -52,9 +95,15 @@ const Register = () => {
                             <input type="text" name="photo" placeholder="photoURL" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Register" />
+                            <input className="btn btn-accent" type="submit" value="Register" />
                         </div>
                     </form>
+                    {
+                        registerError && <p className="text-red-700 font-bold text-center mt-2">{registerError}</p>
+                    }
+                    {
+                        success && <p className="text-green-700 font-bold text-center mt-2">{success}</p>
+                    }
                     <p className="my-4 text-center">Have an account? <Link className="text-orange-600 font-bold" to='/login'>Login</Link></p>
                 </div>
             </div>
