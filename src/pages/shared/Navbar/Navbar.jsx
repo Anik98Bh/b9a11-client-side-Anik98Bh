@@ -56,7 +56,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar rounded fixed z-10 px-5 animate__animated animate__fadeInLeft">
+        <div className="navbar rounded  px-5 animate__animated animate__fadeInLeft">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-3xl font-acma"><span className="text-green-500">A$</span> Alternative Stocks</a>
+                <a className="btn btn-ghost text-3xl font-acma"><span className="text-red-500">A$</span> Alternative Stocks</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -85,14 +85,33 @@ const Navbar = () => {
                         <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     </label>
                 </div>
-                {/* Logout */}
+                {/* profile */}
                 {
-                    user?.email ? <button onClick={handleSignOut} className="btn btn-sm btn-accent">
-                        Logout
-                    </button>
+                    user?.email ? <div className="dropdown dropdown-end dropdown-hover">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+
+                                <img src={
+                                    user.photoURL ? user.photoURL : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7rlHILcxkNp4iwSUhRCeGjQAnZcisSGs9txj5d4FvFr782-NoItG0iDd0GD0eK4WITxU&usqp=CAU'
+                                } />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <button className="btn btn-sm btn-ghost">
+                                    {user?.displayName || user?.email}
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={handleSignOut} className="btn btn-sm btn-ghost">
+                                    Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
                         :
                         <Link to="/login">
-                            <button className="btn btn-sm bg-green-500 font-bold">
+                            <button className="btn btn-sm bg-green-500 text-white font-bold">
                                 Login
                             </button>
                         </Link>
