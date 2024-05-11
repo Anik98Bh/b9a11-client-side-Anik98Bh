@@ -9,6 +9,7 @@ import RecommendationsForMe from "../pages/shared/RecommendationsForMe/Recommend
 import MyQueries from "../pages/shared/MyQueries/MyQueries";
 import MyRecommendations from "../pages/shared/MyRecommendations/MyRecommendations";
 import AddQueries from "../pages/shared/MyQueries/AddQueries/AddQueries";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
         },
         {
           path: "/queries",
-          element: <Queries></Queries>
+          element: <Queries></Queries>,
+          loader: ()=>fetch('http://localhost:5000/queries')
         },
         {
           path: "/login",
@@ -38,11 +40,11 @@ const router = createBrowserRouter([
         },
         {
           path: "/myQueries",
-          element:<MyQueries></MyQueries>
+          element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>,
         },
         {
           path: "/addQueries",
-          element: <AddQueries></AddQueries>
+          element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
         },
         {
           path: "/myRecommendation",

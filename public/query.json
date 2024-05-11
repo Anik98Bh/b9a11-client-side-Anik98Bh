@@ -1,74 +1,106 @@
 [
     {
-        "_id": "01",
         "query_title": "Seeking a product of equivalent quality but better?",
         "product_name": "Axe Dark Temptation Body Spray",
         "brand_name": "Axe",
         "alternation_reason": "Enhanced long-lasting fragrance with chocolate and vanilla notes.",
         "date_posted": "2024-05-11",
-        "product_image": "https://i.postimg.cc/TwdNR3fT/alkis-ischnopoulos-v-Gf5-C-C60-KQ-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/TwdNR3fT/alkis-ischnopoulos-v-Gf5-C-C60-KQ-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "02",
         "query_title": "I'm searching for a better alternative with the same quality.",
         "product_name": "iPhone 15 Pro",
         "brand_name": "Apple",
         "alternation_reason": "Enhanced camera features and performance.",
         "date_posted": "2024-05-10",
-        "product_image": "https://i.postimg.cc/QCV6TYFP/rohan-lkizf-YW3ohw-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/QCV6TYFP/rohan-lkizf-YW3ohw-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "03",
         "query_title": "Is there any Better product that gives me the same quality",
         "product_name": "Coca-Cola Zero Sugar",
         "brand_name": "Coca-Cola",
         "alternation_reason": "New improved taste formula with zero sugar.",
         "date_posted": "2024-05-11",
-        "product_image": "https://i.postimg.cc/zDP2rNM1/mae-mu-z8-PEo-NIl-Glg-unsplash-1.jpg"
+        "product_image": "https://i.postimg.cc/zDP2rNM1/mae-mu-z8-PEo-NIl-Glg-unsplash-1.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "04",
         "query_title": "Seeking a product of equivalent quality but better?",
         "product_name": "Pepsi Mango",
         "brand_name": "Pepsi",
         "alternation_reason": "Refreshing blend of cola and tropical mango flavor.",
         "date_posted": "2024-05-10",
-        "product_image": "https://i.postimg.cc/pX4SDvYB/nikhil-e-Eumk-Kjg7-Jo-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/pX4SDvYB/nikhil-e-Eumk-Kjg7-Jo-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "05",
         "query_title": "Is there any better alternative with similar quality?",
         "product_name": "Jabra Elite 4",
         "brand_name": "Jabra",
         "alternation_reason": "Longer battery life and better sound quality.",
         "date_posted": "2024-05-07",
-        "product_image": "https://i.postimg.cc/5NY79GdQ/theregisti-qt9-Of-Taae-Y-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/5NY79GdQ/theregisti-qt9-Of-Taae-Y-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "06",
         "query_title": "Looking for a product of similar quality but better?",
         "product_name": "Canon EOS R5 Mark II",
         "brand_name": "Canon",
         "alternation_reason": "Enhanced autofocus and video capabilities.",
         "date_posted": "2024-05-06",
-        "product_image": "https://i.postimg.cc/HL23P15R/blocks-h-Fe-VOCqnd-Ik-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/HL23P15R/blocks-h-Fe-VOCqnd-Ik-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "07",
         "query_title": "Any recommendations for a similar quality product?",
         "product_name": "Fitbit Charge 6",
         "brand_name": "Fitbit",
         "alternation_reason": "Added ECG and SpO2 sensors.",
         "date_posted": "2024-05-05",
-        "product_image": "https://i.postimg.cc/jS6hLY82/nikita-kostrykin-5-l-SW0-Mi-E0-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/jS6hLY82/nikita-kostrykin-5-l-SW0-Mi-E0-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     },
     {
-        "_id": "08",
         "query_title": "I'm searching for a better alternative with the same quality.",
         "product_name": "Samsung Galaxy Tab S8",
         "brand_name": "Samsung",
         "alternation_reason": "Upgraded processor and display technology.",
         "date_posted": "2024-05-04",
-        "product_image": "https://i.postimg.cc/R0XQLQxz/mana-akbarzadegan-nz-Wv7exg-VI-unsplash.jpg"
+        "product_image": "https://i.postimg.cc/R0XQLQxz/mana-akbarzadegan-nz-Wv7exg-VI-unsplash.jpg",
+        "user_info": {
+            "user_name":"Rahim Ullah",
+            "user_email":"",
+            "user_image":"https://i.postimg.cc/d3mYBzc0/young-bearded-man-with-striped-shirt.jpg"
+        }
     }
 ]
