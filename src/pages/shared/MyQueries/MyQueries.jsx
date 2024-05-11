@@ -6,16 +6,16 @@ import QueryData from "./QueryData";
 
 const MyQueries = () => {
     const {user}=useAuth();
-    const {item,setItem}=useState();
+    const [item,setItem]=useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myQueries/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                setItem(data)
+                console.log(data);
+                setItem(data);
             })
-    }, []);
+    }, [setItem, user?.email]);
 
     return (
         <div>
@@ -73,14 +73,17 @@ const MyQueries = () => {
                     </div>
                 </div>
             </div>
-            {/* <div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 {
-                    item.map(query=><QueryData 
+                    item?.map(query=><QueryData 
                         key={query._id} 
+                        item={item}
+                        setItem={setItem}
                         query={query}
                         ></QueryData>)
                 }
-            </div> */}
+            </div>
 
         </div>
     );

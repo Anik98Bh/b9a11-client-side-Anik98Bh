@@ -1,12 +1,13 @@
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const DataCart = ({query}) => {
-    const { name, brand, title, reason, userName, image,userImage,date } = query;
+    const { name, brand, title, reason, userName, image,userImage,date,_id } = query;
 
     return (
-        <div className="border px-5 py-2 rounded bg-base-100 flex gap-10">
+        <div className="border px-5 py-2 rounded bg-base-100">
             <figure className="my-3">
-                <img className="h-[365px] w-96 rounded border animate__animated  animate__backInUp" src={image} alt="" />
+                <img className="h-[282px] w-full rounded-xl border animate__animated  animate__backInUp" src={image} alt="" />
             </figure>
             <div className="space-y-4 mt-3">
                 <Slide triggerOnce>
@@ -26,7 +27,7 @@ const DataCart = ({query}) => {
                     <hr />
                     <div className="flex justify-between">
                         <button className="bg-green-200 rounded-full btn-sm font-bold">Recommendation Count: 0</button>
-                        <button className="btn-sm bg-blue-100 rounded-full font-bold text-red-600">Recommend</button>
+                        <Link to={`/queries/${_id}`}><button className="btn-sm bg-blue-100 rounded-full font-bold text-red-600">Recommend</button></Link>
                     </div>
                    
                 </Slide>

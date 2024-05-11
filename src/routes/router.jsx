@@ -10,6 +10,8 @@ import MyQueries from "../pages/shared/MyQueries/MyQueries";
 import MyRecommendations from "../pages/shared/MyRecommendations/MyRecommendations";
 import AddQueries from "../pages/shared/MyQueries/AddQueries/AddQueries";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import QueryDetails from "../components/QueryDetails/QueryDetails";
+import UpdateQueries from "../pages/shared/MyQueries/UpdateQueries/UpdateQueries";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,11 @@ const router = createBrowserRouter([
           element: <Register></Register>
         },
         {
+          path: "/queries/:id",
+          element: <QueryDetails></QueryDetails>,
+          loader: ({params})=>fetch(`http://localhost:5000/queries/${params.id}`)
+        },
+        {
           path: "/recommendationsForMe",
           element: <RecommendationsForMe></RecommendationsForMe>
         },
@@ -45,6 +52,11 @@ const router = createBrowserRouter([
         {
           path: "/addQueries",
           element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
+        },
+        {
+          path: "/updateQueries/:id",
+          element: <UpdateQueries></UpdateQueries>,
+          loader: ()=>fetch(`http://localhost:5000/queries`)
         },
         {
           path: "/myRecommendation",
