@@ -53,31 +53,31 @@ const AddQueries = () => {
                         <label className="label">
                             <span className="label-text">Product Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Product Name" className="input input-bordered" />
+                        <input type="text" name="name" placeholder="Product Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Product Brand</span>
                         </label>
-                        <input type="text" name="brand" placeholder="Product Brand" className="input input-bordered" />
+                        <input type="text" name="brand" placeholder="Product Brand" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Product Image-URL</span>
                         </label>
-                        <input type="text" name="image" placeholder=" Image-URL" className="input input-bordered" />
+                        <input type="text" name="image" placeholder=" Image-URL" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Query Title</span>
                         </label>
-                        <input type="text" name="title" placeholder="Query Title" className="input input-bordered" />
+                        <input type="text" name="title" placeholder="Query Title" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Boycotting Reason</span>
                         </label>
-                        <input type="text" name="reason" placeholder="Boycotting Reason" className="input input-bordered" />
+                        <input type="text" name="reason" placeholder="Boycotting Reason" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">

@@ -5,8 +5,8 @@ import useAuth from "../../../hooks/useAuth/useAuth";
 import QueryData from "./QueryData";
 
 const MyQueries = () => {
-    const {user}=useAuth();
-    const [item,setItem]=useState([]);
+    const { user } = useAuth();
+    const [item, setItem] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myQueries/${user?.email}`)
@@ -73,17 +73,24 @@ const MyQueries = () => {
                     </div>
                 </div>
             </div>
+            {item.length > 0 ? <>  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 {
-                    item?.map(query=><QueryData 
-                        key={query._id} 
+                    item?.map(query => <QueryData
+                        key={query._id}
                         item={item}
                         setItem={setItem}
                         query={query}
-                        ></QueryData>)
+                    ></QueryData>)
                 }
+            </div></> : 
+            < div>
+                <h1 className="text-4xl text-center mt-5">NO query here</h1>
             </div>
+
+            }
+
+
 
         </div>
     );

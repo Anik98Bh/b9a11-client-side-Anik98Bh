@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
           path: "/queries/:id",
           element: <QueryDetails></QueryDetails>,
-          loader: ({params})=>fetch(`http://localhost:5000/queries/${params.id}`)
+          loader: ()=>fetch(`http://localhost:5000/queries`)
         },
         {
           path: "/recommendationsForMe",
