@@ -19,19 +19,19 @@ const MyQueries = () => {
 
     return (
         <div>
-            <div className="flex px-10 gap-5">
-                <div className=" space-y-7 pl-12 w-1/2 ">
+            <div className="md:flex md:px-10 gap-5">
+                <div className=" space-y-7 pl-12 md:w-1/2 ">
                     <Slide triggerOnce>
                         <h2 className="text-6xl font-bold mt-10">Make Your Queries!</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="">
                             <Link to="/addQueries">
-                                <button className="btn font-bold btn-secondary">Add Query</button>
+                                <button className="btn font-bold btn-secondary mb-3">Add Query</button>
                             </Link>
                         </div>
                     </Slide>
                 </div>
-                <div className="carousel w-1/2 h-[400px]">
+                <div className="carousel md:w-1/2 md:h-[400px]">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="https://i.postimg.cc/J7Z92kS9/elegant-smartphone-composition.jpg" className="w-full rounded-xl" />
                         <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[#15151500]">
@@ -83,10 +83,14 @@ const MyQueries = () => {
                         query={query}
                     ></QueryData>)
                 }
-            </div></> : 
-            < div>
-                <h1 className="text-4xl text-center mt-5">NO query here</h1>
-            </div>
+            </div></> :
+                < div className="text-center mt-14">
+                    <h1 className="text-4xl text-center mb-3 font-bold font-mono">Query Not Found</h1>
+                    <p>Please click Add-Query and Submit Your Query!</p>
+                    <Link to="/addQueries">
+                        <button className="btn btn-outline mt-2 font-bold btn-secondary">Add Query</button>
+                    </Link>
+                </div>
 
             }
 

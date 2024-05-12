@@ -2,7 +2,7 @@ import { Slide } from "react-awesome-reveal";
 
 const Community = () => {
     return (
-        <div className="flex gap-5 px-60 mt-36">
+        <div className="grid md:flex gap-5 md:px-60 mt-36">
             <div className="">
                 <Slide triggerOnce>
                     <h1 className="text-7xl font-bold font-acma">Our Community</h1>

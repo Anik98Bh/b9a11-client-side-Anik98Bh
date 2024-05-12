@@ -2,7 +2,7 @@ import { Slide } from "react-awesome-reveal";
 
 const PeoplePlausible = () => {
     return (
-        <div className="grid place-items-center mt-28">
+        <div className="grid md:place-items-center mt-28">
             <div className="text-center">
                 <Slide triggerOnce>
                     <h1 className="text-5xl font-bold">People ❤️ Plausible</h1>

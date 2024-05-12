@@ -10,7 +10,7 @@ const Banner = () => {
                     <p className="px-5 mt-8 text-center">If you shop online, you’re familiar with product recommendations. Every time you visit your favorite brand’s website, you’ll see a list of products recommended just for you based on your search history, your past purchases, and countless other data points. Behind the scenes artificial intelligence (AI) and machine learning algorithms are crunching these numbers, trying to determine exactly what you want to see in real time.</p>
                     <p className="px-5 mt-8 text-center">Product recommendations have played an outsized role in the rapid acceptance of ecommerce. Amazon and Netflix were early adopters of AI-powered product recommendations, investing millions to build and test their own proprietary solutions. Of course, this strategy paid off — and now a growing number of businesses have made product recommendations central to their digital business models.</p>
                     <Link to="/queries">
-                        <button className="btn btn-secondary mt-7 text-xl text-white">All Queries</button>
+                        <button className="btn btn-secondary mt-7 mb-3 text-xl text-white">All Queries</button>
                     </Link>
                 </Slide>
             </div>
