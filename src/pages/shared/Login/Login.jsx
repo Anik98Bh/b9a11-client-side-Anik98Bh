@@ -2,11 +2,13 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 
 const Login = () => {
     const { signIn, googleLogin } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosSecure=useAxiosSecure()
 
     const handleLogin = e => {
         e.preventDefault()
@@ -16,29 +18,38 @@ const Login = () => {
         console.log(email, password)
 
         signIn(email, password)
-        .then(result => {
-            console.log(result.user)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                const user = { email };
 
-            navigate(location?.state ? location.state : "/")
-            if(result.user){
+                if (result.user) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                // get access token
+                axiosSecure.post('/jwt', user)
+                .then(res=>{
+                    console.log(res.data)
+                    if(res.data.success){
+                        navigate(location?.state ? location?.state : '/')
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.error(error)
                 Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Login has been successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-
-        })
-        .catch(error => {
-            console.error(error)
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Something went wrong!",
-              });
-        })
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+            })
     }
 
     const handleGoogleLogin = () => {
@@ -46,14 +57,14 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 navigate(location?.state ? location.state : "/")
-                if(result.user){
+                if (result.user) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
                         title: "Login has been successfully",
                         showConfirmButton: false,
                         timer: 1500
-                      });
+                    });
                 }
             })
             .catch(error => {

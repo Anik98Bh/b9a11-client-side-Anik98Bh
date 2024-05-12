@@ -11,9 +11,9 @@ const DataCart = ({query}) => {
             </figure>
             <div className="space-y-4 mt-3">
                 <Slide triggerOnce>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                         <h2 className="text-xl font-acma text-wrap">{name}</h2>
-                        <p className="text-wrap">{date}</p>
+                        <p className="text-wrap bg-red-50 p-2 rounded-full font-bold">{date}</p>
                     </div>
                     <hr />
                     <div className="flex gap-4 items-center">

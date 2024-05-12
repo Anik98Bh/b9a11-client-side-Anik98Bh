@@ -29,7 +29,7 @@ const Navbar = () => {
                 console.log(result.user);
             })
             .catch(error => {
-                console.error(error)
+                console?.error(error)
             })
     }
 

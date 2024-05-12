@@ -3,19 +3,20 @@ import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import QueryData from "./QueryData";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 
 const MyQueries = () => {
     const { user } = useAuth();
     const [item, setItem] = useState([]);
+    const axiosSecure=useAxiosSecure()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myQueries/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setItem(data);
+        axiosSecure.get(`/myQueries/${user?.email}`)
+            .then(res => {
+                console.log(res.data);
+                setItem(res.data);
             })
-    }, [setItem, user?.email]);
+    }, [axiosSecure, setItem, user?.email]);
 
     return (
         <div>

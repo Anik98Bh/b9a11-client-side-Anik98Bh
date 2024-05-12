@@ -18,9 +18,9 @@ const QueryDetails = () => {
                     <figure className="md:p-10"><img className="md:h-[500px] w-full rounded animate__animated animate__slideInLeft" src={image} alt="" /></figure>
                     <Slide triggerOnce>
                     <div className=" md:px-10 space-y-4 mt-2">
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-center">
                             <h2 className="text-xl font-acma text-wrap">{name}</h2>
-                            <p className="text-wrap bg-red-50 p-2 rounded-full">{date}</p>
+                            <p className="text-wrap bg-red-50 p-2 rounded-full font-bold">{date}</p>
                         </div>
                         <hr />
                         <div className="flex justify-between">
