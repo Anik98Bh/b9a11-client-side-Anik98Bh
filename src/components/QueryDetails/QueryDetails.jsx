@@ -61,7 +61,6 @@ const QueryDetails = () => {
             })
     }, [axiosSecure, id])
 
-    console.log('mysdgdfhfjh', recommendation)
 
     return (
         <div>
@@ -80,7 +79,7 @@ const QueryDetails = () => {
                             <hr />
                             <div className="flex justify-between">
                                 <h2 className="text-xl font-acma text-wrap">{brand}</h2>
-                                <p className="text-wrap bg-green-100 p-2 rounded-full">Recommendation Count:{recommendation.length}</p>
+                                <p className="text-wrap bg-green-100 p-2 rounded-full">Recommendation Count: <b>{recommendation.length}</b></p>
                             </div>
                             <hr />
                             <p><b>Query:</b> {title}</p>
@@ -126,26 +125,29 @@ const QueryDetails = () => {
                     </form>
                 </div>
             </div>
+            <h1 className="text-3xl text-center my-8 underline">Recommendations</h1>
             <div>
                 {
                     recommendation.map(recommend =>
                         <div key={recommend._id}
-                            className="box-content border rounded-xl h-40 w-1/2 ml-5 bg-red-300 grid grid-cols-1 mb-20 px-5 py-3">
+                            className="box-content border rounded-xl w-1/2 ml-5 bg-gray-50 grid grid-cols-1 mb-10 px-5 py-3">
 
                             <div className="flex gap-5">
-                                <div className="w-4/5">
-                                    <div>
+                                <div className="w-4/5 ">
+                                    <div className=" space-y-4">
                                         <div className="flex justify-between items-center">
                                             <h1 className="text-2xl font-bold">{recommend.recommenderName}</h1>
-                                            <p>{recommend.createdAt}</p>
+                                            <p className="text-wrap bg-red-100 p-2 rounded-full font-bold">{recommend.createdAt}</p>
                                         </div>
                                         <p>{recommend.recommenderEmail}</p>
                                         <hr />
+                                        <p><b>Query:</b> {recommend.recommendedTitle}</p>
+                                        <p><b className="text-red-600">Reason:</b> {recommend.recommendedReason}</p>
                                     </div>
 
                                 </div>
                                 <div>
-                                    <img className="h-28 w-28"
+                                    <img className="h-44 w-36 rounded"
                                         src={recommend.recommendedImage} alt="" />
                                 </div>
                             </div>

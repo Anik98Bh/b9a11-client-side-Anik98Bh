@@ -26,12 +26,11 @@ const MyRecommendations = () => {
                                 <input type="checkbox" className="checkbox" />
                             </label>
                         </th>
-                        <th>Image</th>
+                        <th>Recommending Image</th>
                         <th>Recommender Email</th>
-                        <th>Name</th>
+                        <th>Recommender Name</th>
                         <th>Date</th>
-                        <th>Status</th>
-                        <th></th>
+                        <th>Recommending <br /> Product Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,9 +62,9 @@ const MyRecommendations = () => {
                             <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
                         </td>
                         <td>Purple</td>
-                        <th>
+                        <td>
                             <button className="btn btn-ghost btn-xs">details</button>
-                        </th>
+                        </td>
                     </tr>
                 </tbody>
 

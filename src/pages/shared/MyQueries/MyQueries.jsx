@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import QueryData from "./QueryData";
 import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
+import { CiGrid2V, CiGrid31, } from "react-icons/ci";
+import { BsGrid3X2 } from "react-icons/bs";
 
 const MyQueries = () => {
     const { user } = useAuth();
     const [item, setItem] = useState([]);
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
         axiosSecure.get(`/myQueries/${user?.email}`)
@@ -74,6 +76,16 @@ const MyQueries = () => {
                     </div>
                 </div>
             </div>
+            {/*  */}
+            <div className="dropdown dropdown-bottom grid place-items-end my-8 mr-5">
+                <div tabIndex={0} role="button" className="btn m-1">Column</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-28">
+                    <li><a><CiGrid31 className=" text-2xl" /></a></li>
+                    <li><a><CiGrid2V className=" text-2xl" /></a></li>
+                    <li><a><BsGrid3X2 className=" text-2xl" /></a></li>
+                </ul>
+            </div>
+            {/*  */}
             {item.length > 0 ? <>  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
                 {

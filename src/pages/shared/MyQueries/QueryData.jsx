@@ -39,7 +39,7 @@ const QueryData = ({ query, item, setItem }) => {
 
     return (
         <div>
-            <div className="border px-5 py-2 rounded bg-base-100">
+            <div className="border px-5 py-2 rounded bg-gray-50">
                 <figure className="my-3">
                     <img className="h-[282px] w-full rounded-xl border animate__animated  animate__backInUp" src={image} alt="" />
                 </figure>
@@ -52,7 +52,7 @@ const QueryData = ({ query, item, setItem }) => {
                         <hr />
                         <div className="flex gap-4 items-center">
                             <img className="w-10 h-10 rounded-full" src={userImage} alt="" />
-                            <p>{userName}</p>
+                            <p><b>{userName}</b></p>
                         </div>
                         <hr />
                         <h2 className="text-xl font-acma"><b>Brand: </b>{brand}</h2>
