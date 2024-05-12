@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import 'animate.css';
 
 const Register = () => {
-    const { createUser } = useAuth();
+    const { createUser,updateUserProfile } = useAuth();
     const [success, setSuccess] = useState('');
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -37,6 +37,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log('created User', user);
+                updateUserProfile(name, photo)
                 navigate(location?.state ? location.state : "/")
                 if (setSuccess) {
                     Swal.fire({

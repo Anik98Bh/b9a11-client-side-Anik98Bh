@@ -5,23 +5,25 @@ import useAuth from "../../../hooks/useAuth/useAuth";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const [theme, setTheme] = useState('light');
+
+
+
+    const [theme, setTheme] = useState(() => {
+        const storedTheme = localStorage.getItem('theme');
+        return storedTheme ? storedTheme : 'light';
+    });
+
+    const handleToggle = () => {
+        const newTheme = theme === 'light' ? 'luxury' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
 
     useEffect(() => {
-        localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme')
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme])
 
-    const handleToggle = e => {
-        if (e.target.checked) {
-            setTheme('luxury')
-        }
-        else {
-            setTheme('light')
-        }
-    }
-    console.log(theme);
 
     const handleSignOut = () => {
         logOut()
