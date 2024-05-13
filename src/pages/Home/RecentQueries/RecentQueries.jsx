@@ -20,7 +20,7 @@ const RecentQueries = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
-                    queries.slice(0,8).map(query=><CardQuery 
+                    queries.slice(0,6).map(query=><CardQuery 
                         key={query._id}
                         query={query}
                         ></CardQuery>)

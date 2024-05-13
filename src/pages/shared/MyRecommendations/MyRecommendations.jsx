@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
+import MyTableRecom from "./MyTableRecom";
 
 const MyRecommendations = () => {
     const { user } = useAuth();
@@ -11,8 +11,8 @@ const MyRecommendations = () => {
     useEffect(() => {
         axiosSecure.get(`/recommendation/${user?.email}`)
             .then(res => {
-                console.log(res.data);
                 setItem(res.data);
+                console.log(res.data);
             })
     }, [axiosSecure, setItem, user?.email]);
     return (
@@ -29,43 +29,21 @@ const MyRecommendations = () => {
                         <th>Recommending Image</th>
                         <th>Recommender Email</th>
                         <th>Recommender Name</th>
-                        <th>Date</th>
-                        <th>Recommending <br /> Product Name</th>
+                        <th>Creator Info</th>
+                        <th>Creator <br /> Product</th>
+                        <th>Recommending <br /> Product</th>
+                        <th>Recommending Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* row 1 */}
-                    <tr>
-                        <th>
-                            <button className="btn btn-sm btn-circle">
-                                <RiDeleteBin6Line className="text-3xl text-red-600" />
-                            </button>
-                        </th>
-                        <td>
-                            <div className="">
-                                <div className="avatar">
-                                    <div className="mask mask-squircle w-20 h-20">
-                                        <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <div className="font-bold">Hart Hagerty</div>
-                                <div className="text-sm opacity-50">United States</div>
-                            </div>
-                        </td>
-                        <td>
-                            Zemlak, Daniel and Leannon
-                            <br />
-                            <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                        </td>
-                        <td>Purple</td>
-                        <td>
-                            <button className="btn btn-ghost btn-xs">details</button>
-                        </td>
-                    </tr>
+                    {
+                        item.map(query =><MyTableRecom 
+                            key={query._id}
+                            item={item}
+                            setItem={setItem} 
+                            query={query}></MyTableRecom>)
+                    }
+                   
                 </tbody>
 
             </table>

@@ -19,7 +19,7 @@ Currently, two official plugins are available:
 ## Summery of this project
 
 <p align="center">Live Link : https://b9a10-client-side-anik98bh.web.app/ <p/>
-  <h3 align="center">Website: <a href="https://b9a10-client-side-anik98bh.web.app/"><span className="text-red-500 font-acma">A$</span> Alternative Stocks</a></h3>
+  <h3 align="center">Website: <a href="https://b9a10-client-side-anik98bh.web.app/"> A$ Alternative Stocks</a></h3>
 
 
 
