@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import QueryData from "./QueryData";
 import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
-import { CiGrid2V, CiGrid31, } from "react-icons/ci";
-import { BsGrid3X2 } from "react-icons/bs";
+import { FaSortAlphaDownAlt, FaSortAlphaUp } from "react-icons/fa";
 
 const MyQueries = () => {
     const { user } = useAuth();
@@ -16,14 +15,24 @@ const MyQueries = () => {
         axiosSecure.get(`/myQueries/${user?.email}`)
             .then(res => {
                 console.log(res.data);
-                setItem(res.data);
+                const data = res.data.slice().sort((a, b) => new Date (b.date) - new Date(a.date));
+                setItem(data);
             })
     }, [axiosSecure, setItem, user?.email]);
 
+    const handleSortAsc = () => {
+        const sortedData = item.slice().sort((a, b) => new Date (b.date) - new Date(a.date));
+        setItem(sortedData);
+    }
+    const handleSortDesc = () => {
+        const sortedData = item.slice().sort((a, b) => new Date (a.date) - new Date(b.date));
+        setItem(sortedData);
+    }
+
     return (
-        <div>
+        <div className="bg-stone-100">
             <div className="md:flex md:px-10 gap-5">
-                <div className=" space-y-7 pl-12 md:w-1/2 ">
+                <div className=" space-y-7 pl-12 md:w-1/2 bg-slate-100 rounded ">
                     <Slide triggerOnce>
                         <h2 className="text-6xl font-bold mt-10">Make Your Queries!</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
@@ -78,15 +87,14 @@ const MyQueries = () => {
             </div>
             {/* grid column */}
             <div className="dropdown dropdown-bottom grid place-items-end my-8 mr-5">
-                <div tabIndex={0} role="button" className="btn btn-warning m-1">Lay Out</div>
-                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-28">
-                    <li><a><CiGrid31 className=" text-2xl" /></a></li>
-                    <li><a><CiGrid2V className=" text-2xl" /></a></li>
-                    <li><a><BsGrid3X2 className=" text-2xl" /></a></li>
+                <div tabIndex={0} role="button" className="btn btn-warning m-1">Sort by Date</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-20">
+                    <li onClick={()=>handleSortAsc()}><a><FaSortAlphaDownAlt className=" text-2xl text-blue-700" /></a></li>
+                    <li onClick={()=>handleSortDesc()}><a><FaSortAlphaUp className=" text-2xl text-orange-700" /></a></li>
                 </ul>
             </div>
             {/* query post */}
-            {item.length > 0 ? <>  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+            {item?.length > 0 ? <>  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
                 {
                     item?.map(query => <QueryData

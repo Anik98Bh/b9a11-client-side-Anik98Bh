@@ -1,37 +1,56 @@
-import { useLoaderData } from "react-router-dom";
-import DataCart from "./DataCart";
-import { useState } from "react";
-import { CiGrid2V, CiGrid31 } from "react-icons/ci";
+import { useEffect, useState } from "react";
 import { BsGrid3X2 } from "react-icons/bs";
+import { CiGrid2V } from "react-icons/ci";
+import { useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
+import DataCart from "./DataCart";
+
+const gridClass = "grid grid-cols-4 gap-3";
+const listClass = "grid grid-cols-1 gap-4 lg:gap-28 md:grid-cols-2 lg:grid-cols-2";
+const resetClass = "grid grid-cols-1 gap-4 lg:gap-10 md:grid-cols-2 lg:grid-cols-3";
 
 const Queries = () => {
     const { loading } = useAuth();
     const queries = useLoaderData();
     const [filterData, setFilterData] = useState(queries);
 
+
+
+    const [isGrid, setIsGrid] = useState(null);
+
+    const toggleLayout = (status) => {
+        console.log("sta", status)
+        setIsGrid(status);
+    };
+
     const handleSearch = e => {
         const search = e.target.value;
         if (search) {
             const availableData = queries?.filter(query => query?.name.toLowerCase().includes(search.toLowerCase()));
-            setFilterData(availableData);
+            const data = availableData.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+            setFilterData(data);
         }
         else {
-            setFilterData(queries)
+            const data = queries.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+            setFilterData(data)
         }
     }
+    useEffect(() => {
+        const data = queries.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+        setFilterData(data)
+    }, [queries])
 
     return (
-        <div>
+        <div className="bg-stone-100">
             <h1 className="text-center text-4xl font-acma mb-5">All Queries</h1>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mx-10">
                 {/* grid column */}
                 <div className="dropdown dropdown-right grid place-items-end my-8 mr-5">
-                    <div tabIndex={0} role="button" className="btn btn-warning m-1">Lay Out</div>
+                    <div tabIndex={0} role="button" className="btn btn-warning m-1 ">Lay Out</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-28 flex">
-                        <li><a><CiGrid31 className=" text-2xl" /></a></li>
-                        <li><a><CiGrid2V className=" text-2xl" /></a></li>
-                        <li><a><BsGrid3X2 className=" text-2xl" /></a></li>
+                        <li onClick={() => toggleLayout(null)}><a>Reset</a></li>
+                        <li onClick={() => toggleLayout(false)}><a><CiGrid2V className=" text-2xl" /></a></li>
+                        <li onClick={() => toggleLayout(true)}><a><BsGrid3X2 className=" text-2xl" /></a></li>
                     </ul>
                 </div>
                 <div className="mb-5 flex justify-end mr-5 w-1/2">
@@ -44,7 +63,7 @@ const Queries = () => {
             {loading ? <div className=" flex justify-center mt-20">
                 <span className="loading loading-spinner loading-lg text-warning size-20"></span>
             </div> :
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className={isGrid === true ? gridClass : isGrid === false ? listClass : resetClass}>
 
                     {filterData?.map(query => <DataCart
                         key={query._id}

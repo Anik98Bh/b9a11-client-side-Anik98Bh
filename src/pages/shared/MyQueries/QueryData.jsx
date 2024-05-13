@@ -51,7 +51,9 @@ const QueryData = ({ query, item, setItem }) => {
                         </div>
                         <hr />
                         <div className="flex gap-4 items-center">
-                            <img className="w-10 h-10 rounded-full" src={userImage} alt="" />
+                            <img className="w-10 h-10 rounded-full" src={
+                                    userImage ? userImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7rlHILcxkNp4iwSUhRCeGjQAnZcisSGs9txj5d4FvFr782-NoItG0iDd0GD0eK4WITxU&usqp=CAU'
+                                }  alt="" />
                             <p><b>{userName}</b></p>
                         </div>
                         <hr />

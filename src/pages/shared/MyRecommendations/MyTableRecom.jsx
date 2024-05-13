@@ -60,6 +60,12 @@ const MyTableRecom = ({ query, item, setItem }) => {
                 </div>
             </td>
             <td>
+                <p className="bg-green-100 px-2 rounded-full font-bold btn btn-sm">{recommendedName}</p>
+            </td>
+            <td>
+                <p className="btn btn-sm bg-red-50 p-2 rounded-full font-bold">{createdAt}</p>
+            </td>
+            <td>
                 <div>
                     <div className="font-bold">{creatorName}</div>
                     <div className="text-sm opacity-90">{creatorEmail}</div>
@@ -67,12 +73,6 @@ const MyTableRecom = ({ query, item, setItem }) => {
             </td>
             <td>
                 <p className="bg-green-100 px-2 rounded-full font-bold btn btn-sm">{productName}</p>
-            </td>
-            <td>
-                <p className="bg-green-100 px-2 rounded-full font-bold btn btn-sm">{recommendedName}</p>
-            </td>
-            <td>
-                <p className="btn btn-sm bg-red-50 p-2 rounded-full font-bold">{createdAt}</p>
             </td>
         </tr>
     );

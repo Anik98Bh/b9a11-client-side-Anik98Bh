@@ -63,9 +63,9 @@ const QueryDetails = () => {
 
 
     return (
-        <div>
+        <div className="bg-slate-100">
             <div className="text-center">
-                <h1 className="text-3xl font-bold font-mono">Query Details</h1>
+                <h1 className="text-3xl font-bold font-mono mb-2">Query Details</h1>
             </div>
             <div className="md:flex gap-4">
                 <div className=" lg:w-3/4 bg-base-100 px-5 py-5">
@@ -130,25 +130,26 @@ const QueryDetails = () => {
                 {
                     recommendation.map(recommend =>
                         <div key={recommend._id}
-                            className="box-content border rounded-xl w-1/2 ml-5 bg-gray-50 grid grid-cols-1 mb-10 px-5 py-3">
+                            className="box-content border rounded-xl w-1/2 ml-5 bg-violet-100 grid grid-cols-1 mb-10 px-5 py-3">
 
                             <div className="flex gap-5">
                                 <div className="w-4/5 ">
-                                    <div className=" space-y-4">
-                                        <div className="flex justify-between items-center">
-                                            <h1 className="text-2xl font-bold">{recommend.recommenderName}</h1>
-                                            <p className="text-wrap bg-red-100 p-2 rounded-full font-bold">{recommend.createdAt}</p>
+                                    <Slide triggerOnce>
+                                        <div className=" space-y-4">
+                                            <div className="flex justify-between items-center">
+                                                <h1 className="text-2xl font-bold">{recommend.recommenderName}</h1>
+                                                <p className="text-wrap bg-red-100 p-2 rounded-full font-bold">{recommend.createdAt}</p>
+                                            </div>
+                                            <hr />
+                                            <div className="flex justify-between items-center">
+                                                <p>{recommend.recommenderEmail}</p>
+                                                <p>Recommended Product: <b>{recommend.recommendedName}</b></p>
+                                            </div>
+                                            <hr />
+                                            <p><b>Query:</b> {recommend.recommendedTitle}</p>
+                                            <p><b className="text-red-600">Reason:</b> {recommend.recommendedReason}</p>
                                         </div>
-                                        <hr />
-                                        <div className="flex justify-between items-center">
-                                        <p>{recommend.recommenderEmail}</p>
-                                        <p>Recommended Product: <b>{recommend.recommendedName}</b></p>
-                                        </div>
-                                        <hr />
-                                        <p><b>Query:</b> {recommend.recommendedTitle}</p>
-                                        <p><b className="text-red-600">Reason:</b> {recommend.recommendedReason}</p>
-                                    </div>
-
+                                    </Slide>
                                 </div>
                                 <div>
                                     <img className="h-44 w-36 rounded"

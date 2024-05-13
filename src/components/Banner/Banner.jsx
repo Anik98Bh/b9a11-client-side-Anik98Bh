@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
     return (
         <div className="md:flex">
-            <div className="md:w-2/3 pl-6 text-center">
+            <div className="md:w-2/3 pl-6 text-center bg-violet-100">
                 <Slide triggerOnce>
                     <h1 className="text-5xl text-center font-bold font-acma mt-24">Find Your Alternative Products <br /> & Grave It!</h1>
                     <p className="px-5 mt-8 text-center">If you shop online, you’re familiar with product recommendations. Every time you visit your favorite brand’s website, you’ll see a list of products recommended just for you based on your search history, your past purchases, and countless other data points. Behind the scenes artificial intelligence (AI) and machine learning algorithms are crunching these numbers, trying to determine exactly what you want to see in real time.</p>

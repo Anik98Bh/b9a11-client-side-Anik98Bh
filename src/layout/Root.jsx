@@ -5,7 +5,7 @@ import Navbar from "../pages/shared/Navbar/Navbar";
 const Root = () => {
 
     return (
-        <div>
+        <div className="bg-stone-100">
             <div className="h-20">
                 <Navbar></Navbar>
             </div>
