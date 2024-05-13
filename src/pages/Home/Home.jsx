@@ -4,6 +4,7 @@ import PeoplePlausible from "./PeoplePlausible/PeoplePlausible";
 import RecentQueries from "./RecentQueries/RecentQueries";
 
 const Home = () => {
+
     return (
         <div>
             <Banner></Banner>

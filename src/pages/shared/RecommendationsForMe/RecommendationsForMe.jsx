@@ -1,5 +1,20 @@
+import { useEffect, useState } from "react";
+import useAuth from "../../../hooks/useAuth/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
+import TabForMe from "./TabForMe";
 
 const RecommendationsForMe = () => {
+    const { user } = useAuth();
+    const [item, setItem] = useState([]);
+    const axiosSecure = useAxiosSecure()
+
+    useEffect(() => {
+        axiosSecure.get(`/recommendation_for_me/${user?.email}`)
+            .then(res => {
+                setItem(res.data);
+                console.log(res.data);
+            })
+    }, [axiosSecure, setItem, user?.email]);
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -11,43 +26,22 @@ const RecommendationsForMe = () => {
                                 <input type="checkbox" className="checkbox" />
                             </label>
                         </th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
-                        <th></th>
+                        <th>Recommending Image</th>
+                        <th>Recommender Email</th>
+                        <th>Recommender Name</th>
+                        <th>Recommending <br /> Product</th>
+                        <th>Recommending Date</th>
+                        <th>Creator Info</th>
+                        <th>Creator <br /> Product</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* row 1 */}
-                    <tr>
-                        <th>
-                            <button className="btn btn-sm btn-circle">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button>
-                        </th>
-                        <td>
-                            <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                    <div className="mask mask-squircle w-12 h-12">
-                                        <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="font-bold">Hart Hagerty</div>
-                                    <div className="text-sm opacity-50">United States</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Zemlak, Daniel and Leannon
-                            <br />
-                            <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                        </td>
-                        <td>Purple</td>
-                        <th>
-                            <button className="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
+                    {
+                        item.map(query => <TabForMe
+                            key={query._id}
+                            query={query}></TabForMe>)
+                    }
+
                 </tbody>
 
             </table>

@@ -139,7 +139,11 @@ const QueryDetails = () => {
                                             <h1 className="text-2xl font-bold">{recommend.recommenderName}</h1>
                                             <p className="text-wrap bg-red-100 p-2 rounded-full font-bold">{recommend.createdAt}</p>
                                         </div>
+                                        <hr />
+                                        <div className="flex justify-between items-center">
                                         <p>{recommend.recommenderEmail}</p>
+                                        <p>Recommended Product: <b>{recommend.recommendedName}</b></p>
+                                        </div>
                                         <hr />
                                         <p><b>Query:</b> {recommend.recommendedTitle}</p>
                                         <p><b className="text-red-600">Reason:</b> {recommend.recommendedReason}</p>

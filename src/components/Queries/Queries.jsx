@@ -3,8 +3,10 @@ import DataCart from "./DataCart";
 import { useState } from "react";
 import { CiGrid2V, CiGrid31 } from "react-icons/ci";
 import { BsGrid3X2 } from "react-icons/bs";
+import useAuth from "../../hooks/useAuth/useAuth";
 
 const Queries = () => {
+    const { loading } = useAuth();
     const queries = useLoaderData();
     const [filterData, setFilterData] = useState(queries);
 
@@ -39,16 +41,18 @@ const Queries = () => {
                     </label>
                 </div>
             </div>
+            {loading ? <div className=" flex justify-center mt-20">
+                <span className="loading loading-spinner loading-lg text-warning size-20"></span>
+            </div> :
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {
-                    filterData?.map(query => <DataCart
+                    {filterData?.map(query => <DataCart
                         key={query._id}
                         query={query}
                     ></DataCart>)
-                }
-            </div>
+                    }
+                </div>
+            }
         </div>
     );
 };

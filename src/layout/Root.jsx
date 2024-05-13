@@ -3,6 +3,7 @@ import Footer from "../pages/shared/Footer/Footer";
 import Navbar from "../pages/shared/Navbar/Navbar";
 
 const Root = () => {
+
     return (
         <div>
             <div className="h-20">
