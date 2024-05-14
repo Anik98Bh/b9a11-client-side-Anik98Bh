@@ -5,10 +5,10 @@ const RecentQueries = () => {
     const [queries, setQueries]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/queries')
+        fetch('https://b9a11-server-side-anik98-bh.vercel.app/queries')
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            //console.log(data)
             setQueries(data)
         })
     },[])

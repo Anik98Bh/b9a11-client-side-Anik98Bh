@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://b9a11-server-side-anik98-bh.vercel.app',
     withCredentials: true
 })
 
@@ -18,9 +18,8 @@ const useAxiosSecure = () => {
         axiosSecure.interceptors.response.use(res => {
             return res;
         }, error => {
-            console.log('error tracked in the interceptor', error.response)
             if (error.response.status === 401 || error.response.status === 403) {
-                console.log('logout the user')
+                //console.log('logout the user')
                 logOut()
                     .then(() => {
                         navigate('/login')
@@ -30,7 +29,7 @@ const useAxiosSecure = () => {
                     })
             }
         })
-    }, [])
+    }, [logOut, navigate])
 
     return axiosSecure;
 };

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         {
           path: "/queries",
           element: <Queries></Queries>,
-          loader: ()=>fetch('http://localhost:5000/queries')
+          loader: ()=>fetch('https://b9a11-server-side-anik98-bh.vercel.app/queries')
         },
         {
           path: "/login",
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
           path: "/queries/:id",
           element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-          loader: ()=>fetch(`http://localhost:5000/queries`)
+          loader: ()=>fetch(`https://b9a11-server-side-anik98-bh.vercel.app/queries`)
         },
         {
           path: "/recommendationsForMe",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         {
           path: "/updateQueries/:id",
           element: <UpdateQueries></UpdateQueries>,
-          loader: ()=>fetch(`http://localhost:5000/queries`)
+          loader: ()=>fetch(`https://b9a11-server-side-anik98-bh.vercel.app/queries`)
         },
         {
           path: "/myRecommendation",

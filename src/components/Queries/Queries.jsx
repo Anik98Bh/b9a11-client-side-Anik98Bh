@@ -19,7 +19,7 @@ const Queries = () => {
     const [isGrid, setIsGrid] = useState(null);
 
     const toggleLayout = (status) => {
-        console.log("sta", status)
+        // console.log("sta", status)
         setIsGrid(status);
     };
 

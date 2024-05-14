@@ -12,7 +12,7 @@ const QueryDetails = () => {
     const { id } = useParams();
     const [recommendation, setRecommendation] = useState([]);
     const queryItem = query?.find(q => q?._id === id)
-    console.log(queryItem)
+    // console.log(queryItem)
     const newDate = new Date().toLocaleString();
     const { name, brand, title, _id, email, userName, reason, image, date } = queryItem;
 
@@ -27,9 +27,9 @@ const QueryDetails = () => {
 
         const recommendationForm = { recommendedImage, recommendedName, recommendedReason, recommendedTitle, queryId: _id, queryTitle: title, productName: name, creatorEmail: email, creatorName: userName, recommenderEmail: user?.email, recommenderName: user?.displayName, createdAt: newDate };
 
-        console.log(recommendationForm)
+        //console.log(recommendationForm)
 
-        fetch('http://localhost:5000/recommendation', {
+        fetch('https://b9a11-server-side-anik98-bh.vercel.app/recommendation', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const QueryDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         position: "top-end",

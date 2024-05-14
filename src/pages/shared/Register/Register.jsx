@@ -19,7 +19,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        //console.log(name, email, password, photo);
 
         setSuccess('');
         setRegisterError('');
@@ -34,9 +34,9 @@ const Register = () => {
         }
 
         createUser(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log('created User', user);
+            .then(() => {
+                //const user = result.user;
+                //console.log('created User', user);
                 updateUserProfile(name, photo)
                 navigate(location?.state ? location.state : "/")
                 if (setSuccess) {

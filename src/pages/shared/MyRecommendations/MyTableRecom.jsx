@@ -15,12 +15,12 @@ const MyTableRecom = ({ query, item, setItem }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/recommendation/${_id}`, {
+                fetch(`https://b9a11-server-side-anik98-bh.vercel.app/recommendation/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                       // console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

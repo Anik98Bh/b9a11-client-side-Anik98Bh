@@ -12,7 +12,7 @@ const RecommendationsForMe = () => {
         axiosSecure.get(`/recommendation_for_me/${user?.email}`)
             .then(res => {
                 setItem(res.data);
-                console.log(res.data);
+               // console.log(res.data);
             })
     }, [axiosSecure, setItem, user?.email]);
 

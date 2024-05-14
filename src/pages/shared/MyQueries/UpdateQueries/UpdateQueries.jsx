@@ -25,7 +25,7 @@ const UpdateQueries = () => {
         const updatedQueries = { name, brand, title, reason, userName, email, image, userImage: user.photoURL, date, _id };
 
         // send data to the server
-        fetch(`http://localhost:5000/myQueries/${_id}`, {
+        fetch(`https://b9a11-server-side-anik98-bh.vercel.app/myQueries/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const UpdateQueries = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+               // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',

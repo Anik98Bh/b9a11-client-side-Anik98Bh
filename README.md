@@ -15,11 +15,10 @@ Currently, two official plugins are available:
 
 
 
-
 ## Summery of this project
 
-<p align="center">Live Link : https://b9a10-client-side-anik98bh.web.app/ <p/>
-  <h3 align="center">Website: <a href="https://b9a10-client-side-anik98bh.web.app/"> A$ Alternative Stocks</a></h3>
+<p align="center">Live Link : https://b9a11-client-side-anik98bh.web.app/ <p/>
+  <h3 align="center">Website: <a href="https://b9a11-client-side-anik98bh.web.app"> A$ Alternative Stocks</a></h3>
 
 
 
@@ -38,4 +37,5 @@ Currently, two official plugins are available:
   * Connected the Project with MongoDB database.
   * Use npm packages.
   * Create Private router.
+  * Create recommendation system for User.
   * Create a 404 ERROR page, if user type or go wrong url then show custom ERROR.

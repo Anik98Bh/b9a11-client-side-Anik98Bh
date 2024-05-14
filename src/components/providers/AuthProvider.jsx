@@ -44,21 +44,21 @@ const AuthProvider = ({ children }) => {
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = { email: userEmail };
 
-            console.log('current user', currentUser);
+            // console.log('current user', currentUser);
 
             // if user exists then issue a token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://b9a11-server-side-anik98-bh.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log('token response', res.data);
+                        // console.log('token response', res.data);
                         setUser(currentUser)
                         setLoading(false);
                     })
             }
             else {
-                axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+                axios.post('https://b9a11-server-side-anik98-bh.vercel.app/logout', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                         console.log(res.data);
                         setUser(null)
                         setLoading(false);
                     })
@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unSubscribe();
         }
-    }, [])
+    }, [user?.email])
 
     const authInfo = {
         user,

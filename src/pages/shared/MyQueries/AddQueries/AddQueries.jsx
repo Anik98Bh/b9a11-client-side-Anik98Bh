@@ -21,7 +21,7 @@ const AddQueries = () => {
 
 
         // send data to the server
-        fetch('http://localhost:5000/queries',{
+        fetch('https://b9a11-server-side-anik98-bh.vercel.app/queries',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const AddQueries = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 if(data.insertedId){
                     Swal.fire({
                         position: "top-end",

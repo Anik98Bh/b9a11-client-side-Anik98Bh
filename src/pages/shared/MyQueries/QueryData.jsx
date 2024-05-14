@@ -6,7 +6,7 @@ const QueryData = ({ query, item, setItem }) => {
     const { name, brand, title, reason, userName, image, userImage, date, _id } = query;
 
     const handleDelete = _id => {
-        console.log(_id)
+        //console.log(_id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -17,12 +17,12 @@ const QueryData = ({ query, item, setItem }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myQueries/${_id}`, {
+                fetch(`https://b9a11-server-side-anik98-bh.vercel.app/myQueries/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                       // console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

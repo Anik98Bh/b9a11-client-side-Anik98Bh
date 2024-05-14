@@ -15,12 +15,12 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        //console.log(email, password)
 
         signIn(email, password)
             .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
+                //const loggedUser = result.user;
+                //console.log(loggedUser);
                 const user = { email };
 
                 if (result.user) {
@@ -35,7 +35,7 @@ const Login = () => {
                 // get access token
                 axiosSecure.post('/jwt', user)
                 .then(res=>{
-                    console.log(res.data)
+                   // console.log(res.data)
                     if(res.data.success){
                         navigate(location?.state ? location?.state : '/')
                     }
@@ -55,7 +55,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                console.log(result.user)
+                //console.log(result.user)
                 navigate(location?.state ? location.state : "/")
                 if (result.user) {
                     Swal.fire({

@@ -14,7 +14,7 @@ const MyQueries = () => {
     useEffect(() => {
         axiosSecure.get(`/myQueries/${user?.email}`)
             .then(res => {
-                console.log(res.data);
+                //console.log(res.data);
                 const data = res.data.slice().sort((a, b) => new Date (b.date) - new Date(a.date));
                 setItem(data);
             })
