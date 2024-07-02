@@ -39,3 +39,16 @@ Currently, two official plugins are available:
   * Create Private router.
   * Create recommendation system for User.
   * Create a 404 ERROR page, if user type or go wrong url then show custom ERROR.
+
+### Technology used:
+* ##### Frontend:
+ 1. React, 2. TailwindCSS, 3. DaisyUi 4. JavaScript, 5. Firebase, 6.HTML.
+* ##### Backend:
+ 1. Node.js, 2.Express.js.
+* ##### Database:
+ 1. MongoDB
+
+ ## Key Features:--
+* User can Recommend in other Users post.
+* All Recommendation User can see, those are recommend on his Posts. Also he can see all the Recommendation made on other Users posts.
+* User can Updated and Deleted his/her own Recommendation.
